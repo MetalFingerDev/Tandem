@@ -37,7 +37,9 @@ export default function RootLayout({
 							</header>
 							<main className='flex-1'>{children}</main>
 							<footer className='p-8'>
-								<p>6 7 .... footer ............................pg no,,,,</p>
+								<span>
+									6 7 .... footer ............................pg no,,,,
+								</span>
 							</footer>
 						</ThemeProvider>
 					</SidebarProvider>

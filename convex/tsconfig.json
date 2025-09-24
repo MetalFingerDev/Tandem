@@ -3,6 +3,8 @@
    * Convex functions run in and is used to typecheck them.
    * You can modify it, but some settings are required to use Convex.
    */
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": ["./_generated"],
   "compilerOptions": {
     /* These settings are not required by Convex and can be modified. */
     "allowJs": true,
@@ -19,7 +21,5 @@
     "module": "ESNext",
     "isolatedModules": true,
     "noEmit": true
-  },
-  "include": ["./**/*"],
-  "exclude": ["./_generated"]
+  }
 }

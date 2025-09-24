@@ -39,3 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# convex
+convex/_generated/
+.convex/
+
+# clerk (auth)
+.clerk/
+
+# ide/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# os
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# logs
+*.log

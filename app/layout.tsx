@@ -1,9 +1,10 @@
 /* RootLayout */
 
 import "@/styles/globals.css";
-import Sidebar from "@/components/Sidebar";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
 	title: "tandem",
@@ -19,13 +20,19 @@ export default function RootLayout({
 		<html lang='en' suppressHydrationWarning>
 			<body>
 				{" "}
-				<ThemeProvider
-					attribute='class'
-					defaultTheme='system'
-					enableSystem
-					disableTransitionOnChange>
-					<Sidebar>{children}</Sidebar>
-				</ThemeProvider>
+				<SidebarProvider>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange>
+						<AppSidebar />
+						<main>
+							<SidebarTrigger /> {/*THIS SUCKS BT todo: fix sidebar trigger*/}
+							{children}
+						</main>
+					</ThemeProvider>
+				</SidebarProvider>
 			</body>
 		</html>
 	);

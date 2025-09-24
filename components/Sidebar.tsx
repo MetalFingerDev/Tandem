@@ -3,6 +3,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/theme-toggle";
 import { useMemo } from "react";
 import clsx from "clsx";
 
@@ -44,9 +47,11 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 							{route.label}
 						</li>
 					))}
+					<ModeToggle />
+					<Button>sign-in</Button>
 				</ul>
 			</nav>
-			<main>{children}</main>
+			{children}
 		</>
 	);
 };

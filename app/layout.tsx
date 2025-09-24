@@ -1,9 +1,9 @@
 /* RootLayout */
 
-import type { Metadata } from "next";
-import "./globals.css";
-
+import "@/styles/globals.css";
 import Sidebar from "@/components/Sidebar";
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
 	title: "tandem",
@@ -16,9 +16,16 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body>
-				<Sidebar>{children}</Sidebar>
+				{" "}
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange>
+					<Sidebar>{children}</Sidebar>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -11,6 +11,15 @@ import {
 	SidebarMenuButton,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
+
+import {
+	SignInButton,
+	SignUpButton,
+	SignedIn,
+	SignedOut,
+	UserButton,
+} from "@clerk/nextjs";
+
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/theme-toggle";
 
@@ -25,7 +34,7 @@ const items = [
 export function AppSidebar() {
 	return (
 		<Sidebar>
-			<SidebarHeader>
+			<SidebarHeader className='flex-row items-center'>
 				{/* maybe logo or something */}
 				<SidebarTrigger />
 				tandem
@@ -33,7 +42,7 @@ export function AppSidebar() {
 
 			<SidebarContent>
 				<SidebarGroup>
-					<SidebarGroupLabel>Main</SidebarGroupLabel>
+					<SidebarGroupLabel>navigation</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{items.map((item) => (
@@ -50,10 +59,16 @@ export function AppSidebar() {
 					</SidebarGroupContent>
 				</SidebarGroup>
 			</SidebarContent>
-			<SidebarFooter>
+			<SidebarFooter className='flex flex-row items-center justify-around'>
+				<SignedOut>
+					<SignUpButton>
+						<Button>Sign Up</Button>
+					</SignUpButton>
+				</SignedOut>
+				<SignedIn>
+					<UserButton />
+				</SignedIn>
 				<ModeToggle />
-				<Button>sign-in</Button>
-				Profile
 			</SidebarFooter>
 		</Sidebar>
 	);
